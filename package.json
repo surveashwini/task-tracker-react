@@ -2,6 +2,7 @@
   "name": "task-tracker",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://surveashwini.github.io/task-tracker-react",
   "dependencies": {
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
@@ -20,7 +21,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "json-server --watch db.json --port 5000"
+    "server": "npx json-server --watch public/db.json --port=3001",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build -r https://github.com/surveashwini/task-tracker-react.git"
   },
   "eslintConfig": {
     "extends": [
@@ -41,6 +44,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react": "^17.0.5"
+    "@types/react": "^17.0.5",
+    "gh-pages": "^3.1.0"
   }
 }
