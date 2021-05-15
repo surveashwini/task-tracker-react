@@ -1,16 +1,22 @@
 {
   "tasks": [
     {
-      "text": "Git push",
-      "day": "Today at 2:00 pm",
-      "reminder": false,
-      "id": 4
+      "text": "Study",
+      "day": "Everyday at 6:00 AM",
+      "reminder": true,
+      "id": 1
     },
     {
-      "text": "Study",
-      "day": "Everyday at 6:00 am",
+      "text": "Meeting at School",
+      "day": "Feb 6th at 1:30pm",
+      "reminder": "",
+      "id": 3
+    },
+    {
+      "text": "Drink Water",
+      "day": "Every hour of every day",
       "reminder": true,
-      "id": 7
+      "id": 4
     }
   ]
 }
