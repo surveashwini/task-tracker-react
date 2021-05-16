@@ -1,12 +1,6 @@
 {
   "tasks": [
     {
-      "text": "Study",
-      "day": "Everyday at 6:00 AM",
-      "reminder": false,
-      "id": 1
-    },
-    {
       "text": "Drink Water",
       "day": "Every hour of every day",
       "reminder": true,
@@ -15,8 +9,14 @@
     {
       "text": "Meditation",
       "day": "Everyday at 5:00 am",
-      "reminder": true,
+      "reminder": false,
       "id": 6
+    },
+    {
+      "text": "Study",
+      "day": "Everyday at 6:00 am",
+      "reminder": false,
+      "id": 7
     }
   ]
 }

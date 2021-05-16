@@ -11,6 +11,8 @@ import About from "../../elements/About/About";
 const TaskTracker = () => {
   const [showAddTask, setShowAddTask] = useState(false);
   const [tasks, setTasks] = useState([]);
+  const serverUrl =
+    "https://my-json-server.typicode.com/surveashwini/task-tracker-data/tasks/";
 
   // use effect to fetch tasks from server
   useEffect(() => {
@@ -23,21 +25,21 @@ const TaskTracker = () => {
 
   // REST call to fetch tasks
   const fetchTasks = async () => {
-    const res = await fetch("http://localhost:3001/tasks");
+    const res = await fetch(serverUrl);
     const data = await res.json();
     return data;
   };
 
   // REST call to fetch task
   const fetchTask = async (id) => {
-    const res = await fetch(`http://localhost:3001/tasks/${id}`);
+    const res = await fetch(`${serverUrl}${id}`);
     const data = await res.json();
     return data;
   };
 
   // REST call to add task
   const addTask = async (task) => {
-    const res = await fetch("http://localhost:3001/tasks", {
+    const res = await fetch(serverUrl, {
       method: "POST",
       headers: {
         "Content-type": "application/json",
@@ -51,7 +53,7 @@ const TaskTracker = () => {
 
   // REST call to delete task
   const deleteTask = async (id) => {
-    await fetch(`http://localhost:3001/tasks/${id}`, {
+    await fetch(`${serverUrl}${id}`, {
       method: "DELETE",
     });
     setTasks(tasks.filter((task) => task.id !== id));
@@ -62,7 +64,7 @@ const TaskTracker = () => {
     const taskToToggle = await fetchTask(id);
     const updatedTask = { ...taskToToggle, reminder: !taskToToggle.reminder };
 
-    const result = await fetch(`http://localhost:3001/tasks/${id}`, {
+    const result = await fetch(`${serverUrl}${id}`, {
       method: "PUT",
       headers: {
         "Content-type": "application/json",
