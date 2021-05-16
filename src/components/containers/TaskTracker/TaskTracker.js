@@ -1,15 +1,18 @@
-import Header from "./Header";
-import Tasks from "./Tasks";
 import { useState, useEffect } from "react";
-import AddTask from "./AddTask";
-import Footer from "./Footer";
-import About from "./About";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import Tasks from "../Tasks/Tasks";
+import AddTask from "../AddTask/AddTask";
+
+import Header from "../../elements/Header/Header";
+import Footer from "../../elements/Footer/Footer";
+import About from "../../elements/About/About";
 
 const TaskTracker = () => {
   const [showAddTask, setShowAddTask] = useState(false);
   const [tasks, setTasks] = useState([]);
 
+  // use effect to fetch tasks from server
   useEffect(() => {
     const getTasks = async () => {
       const tasksFromServer = await fetchTasks();
@@ -18,18 +21,21 @@ const TaskTracker = () => {
     getTasks();
   }, []);
 
+  // REST call to fetch tasks
   const fetchTasks = async () => {
     const res = await fetch("http://localhost:3001/tasks");
     const data = await res.json();
     return data;
   };
 
+  // REST call to fetch task
   const fetchTask = async (id) => {
     const res = await fetch(`http://localhost:3001/tasks/${id}`);
     const data = await res.json();
     return data;
   };
 
+  // REST call to add task
   const addTask = async (task) => {
     const res = await fetch("http://localhost:3001/tasks", {
       method: "POST",
@@ -43,6 +49,7 @@ const TaskTracker = () => {
     setTasks([...tasks, data]);
   };
 
+  // REST call to delete task
   const deleteTask = async (id) => {
     await fetch(`http://localhost:3001/tasks/${id}`, {
       method: "DELETE",
@@ -50,6 +57,7 @@ const TaskTracker = () => {
     setTasks(tasks.filter((task) => task.id !== id));
   };
 
+  // REST call to toggle task's reminder
   const toggleReminder = async (id) => {
     const taskToToggle = await fetchTask(id);
     const updatedTask = { ...taskToToggle, reminder: !taskToToggle.reminder };

@@ -3,20 +3,20 @@
     {
       "text": "Study",
       "day": "Everyday at 6:00 AM",
-      "reminder": true,
+      "reminder": false,
       "id": 1
-    },
-    {
-      "text": "Meeting at School",
-      "day": "Feb 6th at 1:30pm",
-      "reminder": "",
-      "id": 3
     },
     {
       "text": "Drink Water",
       "day": "Every hour of every day",
       "reminder": true,
       "id": 4
+    },
+    {
+      "text": "Meditation",
+      "day": "Everyday at 5:00 am",
+      "reminder": true,
+      "id": 6
     }
   ]
 }

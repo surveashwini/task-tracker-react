@@ -1,4 +1,4 @@
-import Task from "./Task";
+import Task from "../../elements/Task/Task";
 
 const Tasks = ({ tasks, addTask, deleteTask, toggleReminder }) => {
   return tasks.map((task) => (
